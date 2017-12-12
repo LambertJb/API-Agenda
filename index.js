@@ -1,4 +1,4 @@
-var app = require('express')();
+var app = require('express')(); 
 var session = require('express-session');
 var bodyParser = require('body-parser');
 var todos = require('./todosList.js');
@@ -22,6 +22,11 @@ app.post('/ajouter',urlEncodedParser,function(req,res){
         todos.ajouterTodos(req,res);
         res.send('ajout effectué');
 }); 
+
+app.get('/supprimer/:id', function(req, res){
+        todos.supprimerTodos(req,res);
+        res.send('suppression effectuée');
+});
 
 app.listen(3000, function() {
     console.log('Listening *: 3000');
