@@ -4,12 +4,18 @@ var ajouter = function(req,res){
 
 var supprimer = function(req,res){
         var id = req.params.id;
-        var index = req.session.todosList.todos.lastIndexOf(id);
-        req.session.todosList.todos.splice(index));
+        if( id != undefined){
+        	var index = req.session.todosList.todos.lastIndexOf(id);
+        	req.session.todosList.todos.splice(index);
+        	res.send("supression effectuée");
+        }else {
+        	res.send("supression échouée");
+        }
+        
 }
 
 
 module.exports = {
-    ajouterTodos : ajouter
+    ajouterTodos : ajouter,
     supprimerTodos : supprimer
 };
