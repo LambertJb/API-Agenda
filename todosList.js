@@ -8,6 +8,9 @@ var supprimer = function(req,res){
         if ( index != -1) {
             
             req.session.todosList.todos.splice(index);
+            res.send("supression effectuée");
+        }else {
+        	res.send("supression échouée");
         }
 };
 
