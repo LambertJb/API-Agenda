@@ -14,7 +14,15 @@ app.use(function( req, res, next){
     next();
 });
 
-app.get('/afficher', function(req,res){
+app.get('/afficher/:premier/:nbParPage', function(req,res){
+    var premier = req.params.premier;
+    var nbParPage = req.params.nbParPage;
+
+    
+    res.send(req.session.todosList);
+});
+
+app.get('/', function(req,res){
     res.send(req.session.todosList);
 });
 

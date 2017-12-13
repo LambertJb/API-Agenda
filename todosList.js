@@ -5,11 +5,17 @@ var ajouter = function(req,res){
 var supprimer = function(req,res){
         var id = req.params.id;
         var index = req.session.todosList.todos.lastIndexOf(id);
-        req.session.todosList.todos.splice(index));
-}
+        if ( index != -1) {
+            
+            req.session.todosList.todos.splice(index);
+        }
+};
 
+var pagination = function(premier, nbParPage){
+         
+};
 
 module.exports = {
-    ajouterTodos : ajouter
+    ajouterTodos : ajouter,
     supprimerTodos : supprimer
 };
